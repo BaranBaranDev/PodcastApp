@@ -17,13 +17,11 @@ final class MainTabBarController: UITabBarController {
 }
 
 // MARK: - Helpers
-
 extension MainTabBarController {
-    
     // Tab bar'ı oluşturma ve özelleştirme fonksiyonu
     private func setup() {
         // Tab bar'a eklenecek view controller'ları oluştur
-        let searchVC = createViewController(rootVC: SearchVC(), title: "Search", image: "magnifyingglass.circle")
+        let searchVC = createViewController(rootVC: SearchBuilder.build(), title: "Search", image: "magnifyingglass.circle")
         let favoriteVC = createViewController(rootVC: FavoriteVC(), title: "Favorite", image: "star.circle")
         let downloadVC = createViewController(rootVC: Download(), title: "Download", image: "arrow.down.circle")
         
@@ -75,12 +73,6 @@ extension MainTabBarController {
 
 // MARK: - VC
 
-final class SearchVC: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemRed
-    }
-}
 
 final class FavoriteVC: UIViewController {
     override func viewDidLoad() {

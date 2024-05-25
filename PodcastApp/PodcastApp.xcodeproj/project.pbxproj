@@ -11,6 +11,16 @@
 		BE0D334E2C01D214006AAD08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE0D334D2C01D214006AAD08 /* Assets.xcassets */; };
 		BE0D33512C01D214006AAD08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0D334F2C01D214006AAD08 /* LaunchScreen.storyboard */; };
 		BE0D335B2C01D597006AAD08 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0D335A2C01D597006AAD08 /* MainTabBarController.swift */; };
+		BEF17FA62C01F7FC00F8511B /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA02C01F7FC00F8511B /* SearchPresenter.swift */; };
+		BEF17FA72C01F7FC00F8511B /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA12C01F7FC00F8511B /* SearchWorker.swift */; };
+		BEF17FA82C01F7FC00F8511B /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA22C01F7FC00F8511B /* SearchRouter.swift */; };
+		BEF17FA92C01F7FC00F8511B /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA32C01F7FC00F8511B /* SearchModels.swift */; };
+		BEF17FAA2C01F7FC00F8511B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA42C01F7FC00F8511B /* SearchViewController.swift */; };
+		BEF17FAB2C01F7FC00F8511B /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA52C01F7FC00F8511B /* SearchInteractor.swift */; };
+		BEF17FAD2C01F85200F8511B /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FAC2C01F85200F8511B /* SearchBuilder.swift */; };
+		BEF17FB12C01F9DC00F8511B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BEF17FB02C01F9DC00F8511B /* SnapKit */; };
+		BEF17FB42C01FF2800F8511B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BEF17FB32C01FF2800F8511B /* Alamofire */; };
+		BEF17FB62C02004F00F8511B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FB52C02004F00F8511B /* ServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +30,14 @@
 		BE0D33502C01D214006AAD08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE0D33522C01D214006AAD08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE0D335A2C01D597006AAD08 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		BEF17FA02C01F7FC00F8511B /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		BEF17FA12C01F7FC00F8511B /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
+		BEF17FA22C01F7FC00F8511B /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		BEF17FA32C01F7FC00F8511B /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		BEF17FA42C01F7FC00F8511B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BEF17FA52C01F7FC00F8511B /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		BEF17FAC2C01F85200F8511B /* SearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBuilder.swift; sourceTree = "<group>"; };
+		BEF17FB52C02004F00F8511B /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEF17FB12C01F9DC00F8511B /* SnapKit in Frameworks */,
+				BEF17FB42C01FF2800F8511B /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,11 +72,11 @@
 		BE0D33432C01D213006AAD08 /* PodcastApp */ = {
 			isa = PBXGroup;
 			children = (
+				BE0D335A2C01D597006AAD08 /* MainTabBarController.swift */,
 				BE0D335E2C01D7AD006AAD08 /* Model */,
 				BE0D335D2C01D7A4006AAD08 /* Service */,
 				BE0D335C2C01D784006AAD08 /* Modules */,
 				BE0D33582C01D257006AAD08 /* Files */,
-				BE0D335A2C01D597006AAD08 /* MainTabBarController.swift */,
 			);
 			path = PodcastApp;
 			sourceTree = "<group>";
@@ -75,6 +95,7 @@
 		BE0D335C2C01D784006AAD08 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BEF17FAE2C01F8AB00F8511B /* Search */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -82,6 +103,7 @@
 		BE0D335D2C01D7A4006AAD08 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				BEF17FB52C02004F00F8511B /* ServiceManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -91,6 +113,20 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BEF17FAE2C01F8AB00F8511B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BEF17FAC2C01F85200F8511B /* SearchBuilder.swift */,
+				BEF17FA02C01F7FC00F8511B /* SearchPresenter.swift */,
+				BEF17FA12C01F7FC00F8511B /* SearchWorker.swift */,
+				BEF17FA22C01F7FC00F8511B /* SearchRouter.swift */,
+				BEF17FA32C01F7FC00F8511B /* SearchModels.swift */,
+				BEF17FA42C01F7FC00F8511B /* SearchViewController.swift */,
+				BEF17FA52C01F7FC00F8511B /* SearchInteractor.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +145,10 @@
 			dependencies = (
 			);
 			name = PodcastApp;
+			packageProductDependencies = (
+				BEF17FB02C01F9DC00F8511B /* SnapKit */,
+				BEF17FB32C01FF2800F8511B /* Alamofire */,
+			);
 			productName = PodcastApp;
 			productReference = BE0D33412C01D213006AAD08 /* PodcastApp.app */;
 			productType = "com.apple.product-type.application";
@@ -137,6 +177,10 @@
 				Base,
 			);
 			mainGroup = BE0D33382C01D213006AAD08;
+			packageReferences = (
+				BEF17FAF2C01F9DC00F8511B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				BEF17FB22C01FF2800F8511B /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = BE0D33422C01D213006AAD08 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -163,8 +207,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEF17FB62C02004F00F8511B /* ServiceManager.swift in Sources */,
 				BE0D33452C01D213006AAD08 /* AppDelegate.swift in Sources */,
+				BEF17FAA2C01F7FC00F8511B /* SearchViewController.swift in Sources */,
+				BEF17FAD2C01F85200F8511B /* SearchBuilder.swift in Sources */,
+				BEF17FAB2C01F7FC00F8511B /* SearchInteractor.swift in Sources */,
+				BEF17FA82C01F7FC00F8511B /* SearchRouter.swift in Sources */,
+				BEF17FA72C01F7FC00F8511B /* SearchWorker.swift in Sources */,
 				BE0D335B2C01D597006AAD08 /* MainTabBarController.swift in Sources */,
+				BEF17FA62C01F7FC00F8511B /* SearchPresenter.swift in Sources */,
+				BEF17FA92C01F7FC00F8511B /* SearchModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +429,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BEF17FAF2C01F9DC00F8511B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		BEF17FB22C01FF2800F8511B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BEF17FB02C01F9DC00F8511B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEF17FAF2C01F9DC00F8511B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		BEF17FB32C01FF2800F8511B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEF17FB22C01FF2800F8511B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE0D33392C01D213006AAD08 /* Project object */;
 }
