@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 protocol ServiceManagerProtocol {
-    func fetchData<T: Decodable>(url : String, completion: @escaping(Result<T, Error>) -> Void)
+    func fetchData<T: Codable>(url : String, completion: @escaping(Result<T, Error>) -> Void)
 }
 
 final class ServiceManager{
@@ -19,7 +19,7 @@ final class ServiceManager{
 
 
 extension ServiceManager: ServiceManagerProtocol{
-    func fetchData<T: Decodable>(url : String, completion: @escaping(Result<T, Error>) -> Void){
+    func fetchData<T: Codable>(url : String, completion: @escaping(Result<T, Error>) -> Void){
         AF.request(url).validate().responseDecodable(of: T.self) { [weak self] response in
             guard self != nil else {return }
             switch response.result{

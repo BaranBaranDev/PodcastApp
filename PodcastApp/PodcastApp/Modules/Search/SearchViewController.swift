@@ -8,12 +8,23 @@
 import UIKit
 import SnapKit
 
+protocol SearchViewControllerDisplayLogic: AnyObject {
+    func displaySearchPodcast(viewModel: Search.searchPodcast.ViewModel)
+}
+
+
 final class SearchViewController: UIViewController {
     
-    // MARK:  UI Elements
+    // MARK: Properties
+    private var searchPodcastsArray: [SearchResults] = []
+    
+    //MARK: Dependencies
+    private let interactor: SearchBusinessLogic
+    
+    // MARK: - UI  Elements
     private lazy var tableView: UITableView = {
         let tv = UITableView()
-        return tv 
+        return tv
     }()
     
     
@@ -22,9 +33,17 @@ final class SearchViewController: UIViewController {
         return sc
     }()
     
+    // MARK: - İnitialization
     
+    init(interactor: SearchBusinessLogic) {
+     
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
     
-    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
     
     // MARK: - LifeCycle
     
@@ -32,8 +51,6 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         setup()
         layout()
-        
-        
     }
     
     // MARK: - Setup
@@ -46,13 +63,11 @@ final class SearchViewController: UIViewController {
         // Tableview Configure
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(SearchCell.self, forCellReuseIdentifier: SearchCell.reuseID)
         
         // Searchcontroller Configure
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
-        //
-        
         
     }
     
@@ -68,16 +83,34 @@ final class SearchViewController: UIViewController {
 }
 
 
+// MARK: - SearchViewControllerDisplayLogic
+extension SearchViewController: SearchViewControllerDisplayLogic {
+    func displaySearchPodcast(viewModel: Search.searchPodcast.ViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.searchPodcastsArray = viewModel.podcast
+            tableView.reloadData()
+        }
+    }
+}
+
+
 // MARK: - UITableViewDelegate & UITableViewDataSource
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return searchPodcastsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "naber"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchCell.reuseID, for: indexPath) as? SearchCell else{ return UITableViewCell()}
+        let model = searchPodcastsArray[indexPath.item]
+        cell.configure(with: model)
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UIScreen.screenHeight / 5
     }
     
 }
@@ -87,6 +120,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension SearchViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        interactor.searchPodcast(request: Search.searchPodcast.Request(query: searchText))
     }
 }

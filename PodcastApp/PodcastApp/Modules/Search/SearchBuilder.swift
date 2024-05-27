@@ -10,7 +10,13 @@ import Foundation
 
 enum SearchBuilder {
     static func build() -> SearchViewController {
-        let vc = SearchViewController()
+        let worker = SearchWorker()
+        let presenter = SearchPresenter()
+        let interactor = SearchInteractor(networkWorker: worker, presenter: presenter)
+        let vc = SearchViewController(interactor: interactor)
+        
+        presenter.controller = vc
+        
         return vc
     }
 }

@@ -8,20 +8,16 @@
 
 import UIKit
 
-enum Search
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+enum Search {
+    enum searchPodcast {
+        struct Request {
+            let query: String
+        }
+        struct Response {
+            let podcasts: [SearchResults]
+        }
+        struct ViewModel {
+            let podcast: [SearchResults]
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }
