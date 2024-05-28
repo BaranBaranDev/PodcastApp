@@ -10,10 +10,16 @@ protocol SearchBusinessLogic {
     func searchPodcast(request: Search.searchPodcast.Request)
 }
 
+protocol SearchDataStore: AnyObject {
+    var selectedPodcast: SearchResults? { get set }
+}
 
 
-final class SearchInteractor{
-    
+final class SearchInteractor : SearchDataStore{
+
+    // MARK: SearchDataStore logic
+    var selectedPodcast: SearchResults?
+
     //MARK: Dependencies
     private let networkWorker: SearchNetworkWorker
     private let presenter : SearchPresentationLogic
@@ -24,7 +30,6 @@ final class SearchInteractor{
     }
     
 }
-
 
 extension SearchInteractor: SearchBusinessLogic {
     func searchPodcast(request: Search.searchPodcast.Request) {
@@ -41,4 +46,5 @@ extension SearchInteractor: SearchBusinessLogic {
         }
     }
 }
+
 

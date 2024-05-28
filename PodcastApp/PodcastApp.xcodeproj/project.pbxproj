@@ -12,6 +12,13 @@
 		BE0D334E2C01D214006AAD08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE0D334D2C01D214006AAD08 /* Assets.xcassets */; };
 		BE0D33512C01D214006AAD08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0D334F2C01D214006AAD08 /* LaunchScreen.storyboard */; };
 		BE0D335B2C01D597006AAD08 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0D335A2C01D597006AAD08 /* MainTabBarController.swift */; };
+		BE1923982C05DEA0006C15F9 /* EpisodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1923922C05DEA0006C15F9 /* EpisodePresenter.swift */; };
+		BE1923992C05DEA0006C15F9 /* EpisodeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1923932C05DEA0006C15F9 /* EpisodeWorker.swift */; };
+		BE19239A2C05DEA0006C15F9 /* EpisodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1923942C05DEA0006C15F9 /* EpisodeRouter.swift */; };
+		BE19239B2C05DEA0006C15F9 /* EpisodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1923952C05DEA0006C15F9 /* EpisodeModels.swift */; };
+		BE19239C2C05DEA0006C15F9 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1923962C05DEA0006C15F9 /* EpisodeViewController.swift */; };
+		BE19239D2C05DEA0006C15F9 /* EpisodeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1923972C05DEA0006C15F9 /* EpisodeInteractor.swift */; };
+		BE19239F2C05E28B006C15F9 /* EpisodeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19239E2C05E28B006C15F9 /* EpisodeBuilder.swift */; };
 		BEF17FA62C01F7FC00F8511B /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA02C01F7FC00F8511B /* SearchPresenter.swift */; };
 		BEF17FA72C01F7FC00F8511B /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA12C01F7FC00F8511B /* SearchWorker.swift */; };
 		BEF17FA82C01F7FC00F8511B /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA22C01F7FC00F8511B /* SearchRouter.swift */; };
@@ -35,6 +42,13 @@
 		BE0D33502C01D214006AAD08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE0D33522C01D214006AAD08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE0D335A2C01D597006AAD08 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		BE1923922C05DEA0006C15F9 /* EpisodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodePresenter.swift; sourceTree = "<group>"; };
+		BE1923932C05DEA0006C15F9 /* EpisodeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeWorker.swift; sourceTree = "<group>"; };
+		BE1923942C05DEA0006C15F9 /* EpisodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRouter.swift; sourceTree = "<group>"; };
+		BE1923952C05DEA0006C15F9 /* EpisodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModels.swift; sourceTree = "<group>"; };
+		BE1923962C05DEA0006C15F9 /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
+		BE1923972C05DEA0006C15F9 /* EpisodeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInteractor.swift; sourceTree = "<group>"; };
+		BE19239E2C05E28B006C15F9 /* EpisodeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeBuilder.swift; sourceTree = "<group>"; };
 		BEF17FA02C01F7FC00F8511B /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		BEF17FA12C01F7FC00F8511B /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
 		BEF17FA22C01F7FC00F8511B /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
@@ -109,6 +123,7 @@
 			children = (
 				BEF17FBA2C020CE400F8511B /* Cell */,
 				BEF17FAE2C01F8AB00F8511B /* Search */,
+				BE1923912C05DE6D006C15F9 /* Episode */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -127,6 +142,20 @@
 				BEF17FBD2C02179F00F8511B /* SearchResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BE1923912C05DE6D006C15F9 /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				BE1923922C05DEA0006C15F9 /* EpisodePresenter.swift */,
+				BE1923932C05DEA0006C15F9 /* EpisodeWorker.swift */,
+				BE1923942C05DEA0006C15F9 /* EpisodeRouter.swift */,
+				BE1923952C05DEA0006C15F9 /* EpisodeModels.swift */,
+				BE1923962C05DEA0006C15F9 /* EpisodeViewController.swift */,
+				BE1923972C05DEA0006C15F9 /* EpisodeInteractor.swift */,
+				BE19239E2C05E28B006C15F9 /* EpisodeBuilder.swift */,
+			);
+			path = Episode;
 			sourceTree = "<group>";
 		};
 		BEF17FAE2C01F8AB00F8511B /* Search */ = {
@@ -248,6 +277,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEF17FBE2C02179F00F8511B /* SearchResponse.swift in Sources */,
+				BE19239B2C05DEA0006C15F9 /* EpisodeModels.swift in Sources */,
+				BE1923992C05DEA0006C15F9 /* EpisodeWorker.swift in Sources */,
+				BE19239C2C05DEA0006C15F9 /* EpisodeViewController.swift in Sources */,
 				BEF17FB92C020B9200F8511B /* UIScreen+ Ext.swift in Sources */,
 				BEF17FBC2C020CEC00F8511B /* SearchCell.swift in Sources */,
 				BEF17FB62C02004F00F8511B /* ServiceManager.swift in Sources */,
@@ -260,6 +292,10 @@
 				BEF17FA72C01F7FC00F8511B /* SearchWorker.swift in Sources */,
 				BE0D335B2C01D597006AAD08 /* MainTabBarController.swift in Sources */,
 				BEF17FA62C01F7FC00F8511B /* SearchPresenter.swift in Sources */,
+				BE1923982C05DEA0006C15F9 /* EpisodePresenter.swift in Sources */,
+				BE19239F2C05E28B006C15F9 /* EpisodeBuilder.swift in Sources */,
+				BE19239A2C05DEA0006C15F9 /* EpisodeRouter.swift in Sources */,
+				BE19239D2C05DEA0006C15F9 /* EpisodeInteractor.swift in Sources */,
 				BEF17FA92C01F7FC00F8511B /* SearchModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

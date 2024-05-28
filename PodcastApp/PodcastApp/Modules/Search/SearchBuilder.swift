@@ -14,9 +14,12 @@ enum SearchBuilder {
         let worker = SearchWorker(service: service)
         let presenter = SearchPresenter()
         let interactor = SearchInteractor(networkWorker: worker, presenter: presenter)
-        let vc = SearchViewController(interactor: interactor)
+        let router = SearchRouter()
+        let vc = SearchViewController(interactor: interactor, router: router)
         
         presenter.controller = vc
+        router.controller = vc
+        router.dataStore = interactor
         
         return vc
     }

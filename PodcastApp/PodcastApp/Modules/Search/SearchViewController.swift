@@ -19,7 +19,8 @@ final class SearchViewController: UIViewController {
     private var searchPodcastsArray: [SearchResults] = []
     
     //MARK: Dependencies
-    private let interactor: SearchBusinessLogic
+    private let interactor: (SearchBusinessLogic & SearchDataStore)
+    private let router: SearchRoutingLogic
     
     // MARK: - UI  Elements
     private lazy var tableView: UITableView = {
@@ -35,9 +36,9 @@ final class SearchViewController: UIViewController {
     
     // MARK: - İnitialization
     
-    init(interactor: SearchBusinessLogic) {
-        
+    init(interactor: (SearchBusinessLogic & SearchDataStore), router: SearchRoutingLogic) {
         self.interactor = interactor
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -87,6 +88,7 @@ final class SearchViewController: UIViewController {
 
 // MARK: - SearchViewControllerDisplayLogic
 extension SearchViewController: SearchDisplayLogic {
+    // presentardan gelenleri işleriz
     func displaySearchPodcast(viewModel: Search.searchPodcast.ViewModel) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -117,7 +119,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Navigation
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // interactorda transfer edeceğimiz selectedPodcast ayarlıyoruz
+        interactor.selectedPodcast = searchPodcastsArray[indexPath.item]
+        
+        router.routeEpisode() // geçiş
     }
     
     
