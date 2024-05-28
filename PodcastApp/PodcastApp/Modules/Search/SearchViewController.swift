@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-protocol SearchViewControllerDisplayLogic: AnyObject {
+protocol SearchDisplayLogic: AnyObject {
     func displaySearchPodcast(viewModel: Search.searchPodcast.ViewModel)
 }
 
@@ -36,7 +36,7 @@ final class SearchViewController: UIViewController {
     // MARK: - İnitialization
     
     init(interactor: SearchBusinessLogic) {
-     
+        
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
@@ -52,6 +52,8 @@ final class SearchViewController: UIViewController {
         setup()
         layout()
     }
+    
+    
     
     // MARK: - Setup
     private func setup(){
@@ -84,7 +86,7 @@ final class SearchViewController: UIViewController {
 
 
 // MARK: - SearchViewControllerDisplayLogic
-extension SearchViewController: SearchViewControllerDisplayLogic {
+extension SearchViewController: SearchDisplayLogic {
     func displaySearchPodcast(viewModel: Search.searchPodcast.ViewModel) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -103,6 +105,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchCell.reuseID, for: indexPath) as? SearchCell else{ return UITableViewCell()}
+        
         let model = searchPodcastsArray[indexPath.item]
         cell.configure(with: model)
         
@@ -113,6 +116,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
         return UIScreen.screenHeight / 5
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Navigation
+    }
+    
+    
 }
 
 
@@ -120,6 +128,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension SearchViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // parametreyi interactora yollarız
         interactor.searchPodcast(request: Search.searchPodcast.Request(query: searchText))
     }
 }

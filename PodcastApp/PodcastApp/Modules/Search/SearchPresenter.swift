@@ -13,7 +13,7 @@ protocol SearchPresentationLogic {
 
 
 final class SearchPresenter {
-    weak var controller : SearchViewControllerDisplayLogic?
+    weak var controller : SearchDisplayLogic?
 }
 
 extension SearchPresenter: SearchPresentationLogic {

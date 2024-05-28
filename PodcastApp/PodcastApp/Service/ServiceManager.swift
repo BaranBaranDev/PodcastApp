@@ -13,8 +13,8 @@ protocol ServiceManagerProtocol {
 }
 
 final class ServiceManager{
-    static let shared = ServiceManager()
-    private init(){}
+   // static let shared = ServiceManager()
+   // private init(){}
 }
 
 

@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import Kingfisher
+import SDWebImage
 
 final class SearchCell: UITableViewCell{
     
@@ -18,7 +18,6 @@ final class SearchCell: UITableViewCell{
     // MARK: -  UI Elements
     private lazy var photoImage : UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(systemName: "photo")
         iv.clipsToBounds = true
         iv.contentMode = .scaleAspectFill
         iv.layer.cornerRadius = 8
@@ -27,27 +26,28 @@ final class SearchCell: UITableViewCell{
     
     private lazy var artistName: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Baran"
         lbl.textColor = .label
         lbl.font = UIFont.boldSystemFont(ofSize: 18)
         lbl.font = UIFont.preferredFont(forTextStyle: .headline)
         lbl.adjustsFontForContentSizeCategory = true
+        lbl.numberOfLines = 2
+        lbl.lineBreakMode = .byWordWrapping
         return lbl
     }()
     
     private lazy var trackName: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Hayat Amacı"
         lbl.textColor = .label
         lbl.font = UIFont.preferredFont(forTextStyle: .subheadline)
         lbl.adjustsFontForContentSizeCategory = true
+        lbl.numberOfLines = 0
+        lbl.lineBreakMode = .byWordWrapping
         return lbl
     }()
     
     
     private lazy var trackCount: UILabel = {
         let lbl = UILabel()
-        lbl.text = "10000 Follow"
         lbl.textColor = .secondaryLabel
         lbl.font = UIFont.preferredFont(forTextStyle: .footnote)
         lbl.adjustsFontForContentSizeCategory = true
@@ -75,6 +75,16 @@ final class SearchCell: UITableViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // Hücreleri yeniden kullanmadan önce temizleyelim 
+        photoImage.image = nil
+        artistName.text = nil
+        trackName.text = nil
+        trackCount.text = nil
+    }
+    
     // MARK: - Helpers
     
     private func setupUI(){
@@ -86,23 +96,25 @@ final class SearchCell: UITableViewCell{
         setupImage(with: model.artworkUrl600)
         artistName.text = model.artistName
         trackName.text = model.trackName
+        trackCount.text = "\(model.trackCount ?? 0) Follow"
     }
 }
 
 
-extension SearchCell{
+extension SearchCell {
     private func setupImage(with artworkUrl: String?) {
-        photoImage.kf.indicatorType = .activity // loading göster
-        if let artworkUrl = artworkUrl, let url = URL(string: artworkUrl) {
-        
-            photoImage.kf.setImage(with: url, placeholder: nil, options: nil, completionHandler: { [weak self] result in
-                guard let self = self else { return }
-                self.photoImage.kf.indicator?.stopAnimatingView() // loading dursun
-            })
-        } else {
-            self.photoImage.kf.indicator?.stopAnimatingView()
-            photoImage.image = UIImage(named: "emptyImagePlaceholder") // boş resim göster
+        photoImage.sd_imageIndicator = SDWebImageActivityIndicator.gray // loading göster
+        guard let artworkUrl = artworkUrl, let url = URL(string: artworkUrl) else {
+            // Boş veya geçersiz bir URL ise, boş resmi göster ve loading indicator'ı durdur
+            photoImage.sd_setImage(with: nil, placeholderImage: UIImage(named: "emptyImagePlaceholder"))
+            return
         }
+        
+        photoImage.sd_setImage(with: url, placeholderImage: nil, options: [], completed: { [weak self] _, _, _, _ in
+            // Resim yüklenme tamamlandığında
+            guard let self = self else { return }
+            self.photoImage.sd_imageIndicator?.stopAnimatingIndicator()
+        })
     }
 }
 

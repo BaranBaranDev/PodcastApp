@@ -9,11 +9,18 @@ protocol SearchNetworkWorker {
     func searchPodcast(searchText: String, completion: @escaping (Result<SearchResponse, Error>) -> Void)
 }
 
-final class SearchWorker { }
+final class SearchWorker { 
+     //MARK: Dependencies
+    private let service: ServiceManagerProtocol
+    
+    init(service: ServiceManagerProtocol) {
+        self.service = service
+    }
+}
 
 extension SearchWorker: SearchNetworkWorker {
     func searchPodcast(searchText: String, completion: @escaping (Result<SearchResponse, Error>) -> Void) {
         let url = ApiURL.searchPodcast(searchText: searchText)
-        ServiceManager.shared.fetchData(url: url, completion: completion)
+        service.fetchData(url: url, completion: completion)
     }
 }
