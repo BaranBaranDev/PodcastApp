@@ -17,9 +17,11 @@ final class SearchViewController: UIViewController {
     
     // MARK: Properties
     private var searchPodcastsArray: [SearchResults] = []
+    typealias SearchInteractorLogic = (SearchBusinessLogic & SearchDataStore)
     
     //MARK: Dependencies
-    private let interactor: (SearchBusinessLogic & SearchDataStore)
+   
+    private let interactor: SearchInteractorLogic
     private let router: SearchRoutingLogic
     
     // MARK: - UI  Elements
@@ -36,7 +38,7 @@ final class SearchViewController: UIViewController {
     
     // MARK: - İnitialization
     
-    init(interactor: (SearchBusinessLogic & SearchDataStore), router: SearchRoutingLogic) {
+    init(interactor: SearchInteractorLogic, router: SearchRoutingLogic) {
         self.interactor = interactor
         self.router = router
         super.init(nibName: nil, bundle: nil)

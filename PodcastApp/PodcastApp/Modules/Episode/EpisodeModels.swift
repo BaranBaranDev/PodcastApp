@@ -8,20 +8,17 @@
 
 import UIKit
 
-enum Episode
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+
+enum Episode {
+    enum fetchFeed {
+        struct Request {
+            let feedUrl: String
+        }
+        struct Response {
+            let feed: [EpisodeResponse]
+        }
+        struct ViewModel {
+            let feed: [EpisodeResponse]
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

@@ -11,7 +11,7 @@ protocol SearchBusinessLogic {
 }
 
 protocol SearchDataStore: AnyObject {
-    var selectedPodcast: SearchResults? { get set }
+    var selectedPodcast: SearchResults? { get set } // aktarmalıyız episode sayfasına
 }
 
 

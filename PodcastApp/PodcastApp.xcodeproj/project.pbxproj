@@ -33,6 +33,16 @@
 		BEF17FBC2C020CEC00F8511B /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FBB2C020CEC00F8511B /* SearchCell.swift */; };
 		BEF17FBE2C02179F00F8511B /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FBD2C02179F00F8511B /* SearchResponse.swift */; };
 		BEF17FC32C022C6800F8511B /* ApiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FC22C022C6800F8511B /* ApiURL.swift */; };
+		BEFBA2A32C073BBD0006E655 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = BEFBA2A22C073BBD0006E655 /* FeedKit */; };
+		BEFBA2A52C0741340006E655 /* EpisodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBA2A42C0741340006E655 /* EpisodeResponse.swift */; };
+		BEFBA2A92C07474B0006E655 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBA2A82C07474B0006E655 /* EpisodeCell.swift */; };
+		BEFBA2B12C0774010006E655 /* PlayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBA2AB2C0774010006E655 /* PlayPresenter.swift */; };
+		BEFBA2B22C0774010006E655 /* PlayWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBA2AC2C0774010006E655 /* PlayWorker.swift */; };
+		BEFBA2B32C0774010006E655 /* PlayRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBA2AD2C0774010006E655 /* PlayRouter.swift */; };
+		BEFBA2B42C0774010006E655 /* PlayModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBA2AE2C0774010006E655 /* PlayModels.swift */; };
+		BEFBA2B52C0774010006E655 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBA2AF2C0774010006E655 /* PlayViewController.swift */; };
+		BEFBA2B62C0774010006E655 /* PlayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBA2B02C0774010006E655 /* PlayInteractor.swift */; };
+		BEFBA2B92C0775EE0006E655 /* PlayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBA2B82C0775EE0006E655 /* PlayBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +71,15 @@
 		BEF17FBB2C020CEC00F8511B /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		BEF17FBD2C02179F00F8511B /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		BEF17FC22C022C6800F8511B /* ApiURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiURL.swift; sourceTree = "<group>"; };
+		BEFBA2A42C0741340006E655 /* EpisodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeResponse.swift; sourceTree = "<group>"; };
+		BEFBA2A82C07474B0006E655 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
+		BEFBA2AB2C0774010006E655 /* PlayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPresenter.swift; sourceTree = "<group>"; };
+		BEFBA2AC2C0774010006E655 /* PlayWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWorker.swift; sourceTree = "<group>"; };
+		BEFBA2AD2C0774010006E655 /* PlayRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRouter.swift; sourceTree = "<group>"; };
+		BEFBA2AE2C0774010006E655 /* PlayModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayModels.swift; sourceTree = "<group>"; };
+		BEFBA2AF2C0774010006E655 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		BEFBA2B02C0774010006E655 /* PlayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayInteractor.swift; sourceTree = "<group>"; };
+		BEFBA2B82C0775EE0006E655 /* PlayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +90,7 @@
 				BE087B722C04D14D005012C4 /* SDWebImage in Frameworks */,
 				BEF17FB12C01F9DC00F8511B /* SnapKit in Frameworks */,
 				BEF17FB42C01FF2800F8511B /* Alamofire in Frameworks */,
+				BEFBA2A32C073BBD0006E655 /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +144,7 @@
 				BEF17FBA2C020CE400F8511B /* Cell */,
 				BEF17FAE2C01F8AB00F8511B /* Search */,
 				BE1923912C05DE6D006C15F9 /* Episode */,
+				BEFBA2AA2C0773870006E655 /* Play */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -140,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				BEF17FBD2C02179F00F8511B /* SearchResponse.swift */,
+				BEFBA2A42C0741340006E655 /* EpisodeResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,13 +169,13 @@
 		BE1923912C05DE6D006C15F9 /* Episode */ = {
 			isa = PBXGroup;
 			children = (
-				BE1923922C05DEA0006C15F9 /* EpisodePresenter.swift */,
-				BE1923932C05DEA0006C15F9 /* EpisodeWorker.swift */,
-				BE1923942C05DEA0006C15F9 /* EpisodeRouter.swift */,
-				BE1923952C05DEA0006C15F9 /* EpisodeModels.swift */,
-				BE1923962C05DEA0006C15F9 /* EpisodeViewController.swift */,
-				BE1923972C05DEA0006C15F9 /* EpisodeInteractor.swift */,
 				BE19239E2C05E28B006C15F9 /* EpisodeBuilder.swift */,
+				BE1923962C05DEA0006C15F9 /* EpisodeViewController.swift */,
+				BE1923952C05DEA0006C15F9 /* EpisodeModels.swift */,
+				BE1923932C05DEA0006C15F9 /* EpisodeWorker.swift */,
+				BE1923972C05DEA0006C15F9 /* EpisodeInteractor.swift */,
+				BE1923922C05DEA0006C15F9 /* EpisodePresenter.swift */,
+				BE1923942C05DEA0006C15F9 /* EpisodeRouter.swift */,
 			);
 			path = Episode;
 			sourceTree = "<group>";
@@ -184,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				BEF17FBB2C020CEC00F8511B /* SearchCell.swift */,
+				BEFBA2A82C07474B0006E655 /* EpisodeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -194,6 +217,20 @@
 				BEF17FC22C022C6800F8511B /* ApiURL.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BEFBA2AA2C0773870006E655 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				BEFBA2B82C0775EE0006E655 /* PlayBuilder.swift */,
+				BEFBA2AF2C0774010006E655 /* PlayViewController.swift */,
+				BEFBA2AB2C0774010006E655 /* PlayPresenter.swift */,
+				BEFBA2AC2C0774010006E655 /* PlayWorker.swift */,
+				BEFBA2AD2C0774010006E655 /* PlayRouter.swift */,
+				BEFBA2AE2C0774010006E655 /* PlayModels.swift */,
+				BEFBA2B02C0774010006E655 /* PlayInteractor.swift */,
+			);
+			path = Play;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +253,7 @@
 				BEF17FB02C01F9DC00F8511B /* SnapKit */,
 				BEF17FB32C01FF2800F8511B /* Alamofire */,
 				BE087B712C04D14D005012C4 /* SDWebImage */,
+				BEFBA2A22C073BBD0006E655 /* FeedKit */,
 			);
 			productName = PodcastApp;
 			productReference = BE0D33412C01D213006AAD08 /* PodcastApp.app */;
@@ -249,6 +287,7 @@
 				BEF17FAF2C01F9DC00F8511B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				BEF17FB22C01FF2800F8511B /* XCRemoteSwiftPackageReference "Alamofire" */,
 				BE087B702C04D14D005012C4 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				BEFBA2A12C073BBD0006E655 /* XCRemoteSwiftPackageReference "FeedKit" */,
 			);
 			productRefGroup = BE0D33422C01D213006AAD08 /* Products */;
 			projectDirPath = "";
@@ -276,7 +315,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEFBA2B32C0774010006E655 /* PlayRouter.swift in Sources */,
 				BEF17FBE2C02179F00F8511B /* SearchResponse.swift in Sources */,
+				BEFBA2B22C0774010006E655 /* PlayWorker.swift in Sources */,
 				BE19239B2C05DEA0006C15F9 /* EpisodeModels.swift in Sources */,
 				BE1923992C05DEA0006C15F9 /* EpisodeWorker.swift in Sources */,
 				BE19239C2C05DEA0006C15F9 /* EpisodeViewController.swift in Sources */,
@@ -286,16 +327,23 @@
 				BEF17FC32C022C6800F8511B /* ApiURL.swift in Sources */,
 				BE0D33452C01D213006AAD08 /* AppDelegate.swift in Sources */,
 				BEF17FAA2C01F7FC00F8511B /* SearchViewController.swift in Sources */,
+				BEFBA2B52C0774010006E655 /* PlayViewController.swift in Sources */,
 				BEF17FAD2C01F85200F8511B /* SearchBuilder.swift in Sources */,
 				BEF17FAB2C01F7FC00F8511B /* SearchInteractor.swift in Sources */,
 				BEF17FA82C01F7FC00F8511B /* SearchRouter.swift in Sources */,
 				BEF17FA72C01F7FC00F8511B /* SearchWorker.swift in Sources */,
+				BEFBA2B92C0775EE0006E655 /* PlayBuilder.swift in Sources */,
+				BEFBA2B62C0774010006E655 /* PlayInteractor.swift in Sources */,
 				BE0D335B2C01D597006AAD08 /* MainTabBarController.swift in Sources */,
 				BEF17FA62C01F7FC00F8511B /* SearchPresenter.swift in Sources */,
 				BE1923982C05DEA0006C15F9 /* EpisodePresenter.swift in Sources */,
 				BE19239F2C05E28B006C15F9 /* EpisodeBuilder.swift in Sources */,
+				BEFBA2B42C0774010006E655 /* PlayModels.swift in Sources */,
+				BEFBA2A52C0741340006E655 /* EpisodeResponse.swift in Sources */,
 				BE19239A2C05DEA0006C15F9 /* EpisodeRouter.swift in Sources */,
+				BEFBA2B12C0774010006E655 /* PlayPresenter.swift in Sources */,
 				BE19239D2C05DEA0006C15F9 /* EpisodeInteractor.swift in Sources */,
+				BEFBA2A92C07474B0006E655 /* EpisodeCell.swift in Sources */,
 				BEF17FA92C01F7FC00F8511B /* SearchModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,6 +583,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		BEFBA2A12C073BBD0006E655 /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -552,6 +608,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BEF17FB22C01FF2800F8511B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		BEFBA2A22C073BBD0006E655 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEFBA2A12C073BBD0006E655 /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
