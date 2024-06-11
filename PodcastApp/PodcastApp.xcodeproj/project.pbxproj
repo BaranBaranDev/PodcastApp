@@ -19,6 +19,7 @@
 		BE19239C2C05DEA0006C15F9 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1923962C05DEA0006C15F9 /* EpisodeViewController.swift */; };
 		BE19239D2C05DEA0006C15F9 /* EpisodeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1923972C05DEA0006C15F9 /* EpisodeInteractor.swift */; };
 		BE19239F2C05E28B006C15F9 /* EpisodeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19239E2C05E28B006C15F9 /* EpisodeBuilder.swift */; };
+		BE2F24352C180A1200DBAA87 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F24342C180A1200DBAA87 /* PlayView.swift */; };
 		BEF17FA62C01F7FC00F8511B /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA02C01F7FC00F8511B /* SearchPresenter.swift */; };
 		BEF17FA72C01F7FC00F8511B /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA12C01F7FC00F8511B /* SearchWorker.swift */; };
 		BEF17FA82C01F7FC00F8511B /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA22C01F7FC00F8511B /* SearchRouter.swift */; };
@@ -59,6 +60,7 @@
 		BE1923962C05DEA0006C15F9 /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		BE1923972C05DEA0006C15F9 /* EpisodeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInteractor.swift; sourceTree = "<group>"; };
 		BE19239E2C05E28B006C15F9 /* EpisodeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeBuilder.swift; sourceTree = "<group>"; };
+		BE2F24342C180A1200DBAA87 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		BEF17FA02C01F7FC00F8511B /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		BEF17FA12C01F7FC00F8511B /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
 		BEF17FA22C01F7FC00F8511B /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
@@ -141,7 +143,6 @@
 		BE0D335C2C01D784006AAD08 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				BEF17FBA2C020CE400F8511B /* Cell */,
 				BEF17FAE2C01F8AB00F8511B /* Search */,
 				BE1923912C05DE6D006C15F9 /* Episode */,
 				BEFBA2AA2C0773870006E655 /* Play */,
@@ -169,6 +170,7 @@
 		BE1923912C05DE6D006C15F9 /* Episode */ = {
 			isa = PBXGroup;
 			children = (
+				BE2F24382C180F3300DBAA87 /* Cell */,
 				BE19239E2C05E28B006C15F9 /* EpisodeBuilder.swift */,
 				BE1923962C05DEA0006C15F9 /* EpisodeViewController.swift */,
 				BE1923952C05DEA0006C15F9 /* EpisodeModels.swift */,
@@ -180,9 +182,34 @@
 			path = Episode;
 			sourceTree = "<group>";
 		};
+		BE2F24372C180F1800DBAA87 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEF17FBB2C020CEC00F8511B /* SearchCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BE2F24382C180F3300DBAA87 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEFBA2A82C07474B0006E655 /* EpisodeCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BE2F24392C180F4600DBAA87 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE2F24342C180A1200DBAA87 /* PlayView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BEF17FAE2C01F8AB00F8511B /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				BE2F24372C180F1800DBAA87 /* Cell */,
 				BEF17FAC2C01F85200F8511B /* SearchBuilder.swift */,
 				BEF17FA42C01F7FC00F8511B /* SearchViewController.swift */,
 				BEF17FA32C01F7FC00F8511B /* SearchModels.swift */,
@@ -202,15 +229,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		BEF17FBA2C020CE400F8511B /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				BEF17FBB2C020CEC00F8511B /* SearchCell.swift */,
-				BEFBA2A82C07474B0006E655 /* EpisodeCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		BEF17FC12C022C5600F8511B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +240,7 @@
 		BEFBA2AA2C0773870006E655 /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				BE2F24392C180F4600DBAA87 /* View */,
 				BEFBA2B82C0775EE0006E655 /* PlayBuilder.swift */,
 				BEFBA2AF2C0774010006E655 /* PlayViewController.swift */,
 				BEFBA2AB2C0774010006E655 /* PlayPresenter.swift */,
@@ -320,6 +339,7 @@
 				BEFBA2B22C0774010006E655 /* PlayWorker.swift in Sources */,
 				BE19239B2C05DEA0006C15F9 /* EpisodeModels.swift in Sources */,
 				BE1923992C05DEA0006C15F9 /* EpisodeWorker.swift in Sources */,
+				BE2F24352C180A1200DBAA87 /* PlayView.swift in Sources */,
 				BE19239C2C05DEA0006C15F9 /* EpisodeViewController.swift in Sources */,
 				BEF17FB92C020B9200F8511B /* UIScreen+ Ext.swift in Sources */,
 				BEF17FBC2C020CEC00F8511B /* SearchCell.swift in Sources */,

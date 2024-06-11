@@ -15,18 +15,22 @@ final class PlayViewController: UIViewController {
     
     
     
+    // MARK: - UI Elements
+   
+    private lazy var  playView : UIView = PlayView()
+    
     
     // MARK: - İnitialization
     
     init(episode: EpisodeResponse? = nil) {
         self.episode = episode
         super.init(nibName: nil, bundle: nil)
-        print(episode?.title)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     
   
@@ -38,17 +42,21 @@ final class PlayViewController: UIViewController {
         layout()
     }
     
-    
+
     
     // MARK: - Setup
-    private func setup(){
-        view.backgroundColor = .cyan
-        
+    private func setup() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(playView)
     }
     
-    // MARK: Layout
-    private func layout(){
-    
+    private func layout (){
+        playView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalTo(view.snp.leadingMargin)
+            make.trailing.equalTo(view.snp.trailingMargin)
+
+        }
     }
 }
 
