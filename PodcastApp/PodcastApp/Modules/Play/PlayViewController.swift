@@ -6,7 +6,7 @@
 
 
 import UIKit
-
+import SDWebImage
 
 final class PlayViewController: UIViewController {
     
@@ -17,7 +17,16 @@ final class PlayViewController: UIViewController {
     
     // MARK: - UI Elements
    
-    private lazy var  playView : UIView = PlayView()
+    private lazy var  playView : UIView = {
+        let view = PlayView(frame: .zero, episodeModel: episode!)
+
+        view.closeAction = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+        }
+        
+        return view
+    }()
     
     
     // MARK: - İnitialization
@@ -32,7 +41,6 @@ final class PlayViewController: UIViewController {
     }
     
     
-    
   
     // MARK: - LifeCycle
     
@@ -42,7 +50,14 @@ final class PlayViewController: UIViewController {
         layout()
     }
     
-
+    // Bellek
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        SDImageCache.shared.clearMemory()
+        if (self.isViewLoaded) && (self.view.window == nil) {
+            self.view = nil
+        }
+    }
     
     // MARK: - Setup
     private func setup() {
