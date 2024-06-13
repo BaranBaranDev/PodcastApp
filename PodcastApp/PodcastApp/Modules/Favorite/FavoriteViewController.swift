@@ -17,24 +17,25 @@ protocol FavoriteDisplayLogic: AnyObject {
 
 
 final class FavoriteViewController: UIViewController{
-
+    
     // MARK: - Properties
     
     
     // MARK: - UI Elements
     
     private lazy var  collectionView: UICollectionView = {
-        let cv = UICollectionView()
+        let layout = UICollectionViewFlowLayout()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         return cv
     }()
     
-
+    
     //MARK: - Dependencies
-
+    
     private var interactor : FavoriteBusinessLogic & FavoriteDataStore
     
     private let router : FavoriteRoutingLogic
-
+    
     
     // MARK:  İnitialization
     
@@ -61,23 +62,22 @@ final class FavoriteViewController: UIViewController{
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
     }
- 
     
     // MARK: - Setup
     private func setup() {
         view.backgroundColor = .systemBackground
-
+        
         // subviews
         view.addSubview(collectionView)
         
         // configure collectionView
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(FavoriteCell.self, forCellWithReuseIdentifier: FavoriteCell.reuseID)
         
         
     }
-
+    
 }
 
 
@@ -100,9 +100,9 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .red
-        
+        guard let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteCell.reuseID, for: indexPath) as? FavoriteCell
+        else { return UICollectionViewCell() }
+    
         return cell
     }
     
@@ -111,6 +111,16 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
 // MARK: - UICollectionViewDelegateFlowLayout
 extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 200)
+        return .init(width:((UIScreen.main.bounds.width - 40) / 2) , height: 200)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 24
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 12 , left: 12, bottom: 12, right: 12)
+    }
+    
 }
