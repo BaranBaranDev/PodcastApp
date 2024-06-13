@@ -21,6 +21,13 @@
 		BE19239F2C05E28B006C15F9 /* EpisodeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19239E2C05E28B006C15F9 /* EpisodeBuilder.swift */; };
 		BE2CAC2E2C18846C002395DE /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2CAC2D2C18846C002395DE /* UIImageView+Ext.swift */; };
 		BE2F24352C180A1200DBAA87 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F24342C180A1200DBAA87 /* PlayView.swift */; };
+		BE30C31B2C1AD7F600803E17 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE30C3142C1AD7F600803E17 /* FavoritePresenter.swift */; };
+		BE30C31C2C1AD7F600803E17 /* FavoriteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE30C3152C1AD7F600803E17 /* FavoriteWorker.swift */; };
+		BE30C31D2C1AD7F600803E17 /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE30C3162C1AD7F600803E17 /* FavoriteRouter.swift */; };
+		BE30C31E2C1AD7F600803E17 /* FavoriteModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE30C3172C1AD7F600803E17 /* FavoriteModels.swift */; };
+		BE30C31F2C1AD7F600803E17 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE30C3182C1AD7F600803E17 /* FavoriteViewController.swift */; };
+		BE30C3202C1AD7F600803E17 /* FavoriteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE30C3192C1AD7F600803E17 /* FavoriteBuilder.swift */; };
+		BE30C3212C1AD7F600803E17 /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE30C31A2C1AD7F600803E17 /* FavoriteInteractor.swift */; };
 		BEF17FA62C01F7FC00F8511B /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA02C01F7FC00F8511B /* SearchPresenter.swift */; };
 		BEF17FA72C01F7FC00F8511B /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA12C01F7FC00F8511B /* SearchWorker.swift */; };
 		BEF17FA82C01F7FC00F8511B /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF17FA22C01F7FC00F8511B /* SearchRouter.swift */; };
@@ -63,6 +70,13 @@
 		BE19239E2C05E28B006C15F9 /* EpisodeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeBuilder.swift; sourceTree = "<group>"; };
 		BE2CAC2D2C18846C002395DE /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		BE2F24342C180A1200DBAA87 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		BE30C3142C1AD7F600803E17 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
+		BE30C3152C1AD7F600803E17 /* FavoriteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteWorker.swift; sourceTree = "<group>"; };
+		BE30C3162C1AD7F600803E17 /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
+		BE30C3172C1AD7F600803E17 /* FavoriteModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModels.swift; sourceTree = "<group>"; };
+		BE30C3182C1AD7F600803E17 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		BE30C3192C1AD7F600803E17 /* FavoriteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBuilder.swift; sourceTree = "<group>"; };
+		BE30C31A2C1AD7F600803E17 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
 		BEF17FA02C01F7FC00F8511B /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		BEF17FA12C01F7FC00F8511B /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
 		BEF17FA22C01F7FC00F8511B /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
@@ -148,6 +162,7 @@
 				BEF17FAE2C01F8AB00F8511B /* Search */,
 				BE1923912C05DE6D006C15F9 /* Episode */,
 				BEFBA2AA2C0773870006E655 /* Play */,
+				BE30C3052C1AD44700803E17 /* Favorite */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -206,6 +221,20 @@
 				BE2F24342C180A1200DBAA87 /* PlayView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BE30C3052C1AD44700803E17 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				BE30C3192C1AD7F600803E17 /* FavoriteBuilder.swift */,
+				BE30C3182C1AD7F600803E17 /* FavoriteViewController.swift */,
+				BE30C3142C1AD7F600803E17 /* FavoritePresenter.swift */,
+				BE30C3152C1AD7F600803E17 /* FavoriteWorker.swift */,
+				BE30C3162C1AD7F600803E17 /* FavoriteRouter.swift */,
+				BE30C3172C1AD7F600803E17 /* FavoriteModels.swift */,
+				BE30C31A2C1AD7F600803E17 /* FavoriteInteractor.swift */,
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 		BEF17FAE2C01F8AB00F8511B /* Search */ = {
@@ -342,21 +371,28 @@
 				BEFBA2B22C0774010006E655 /* PlayWorker.swift in Sources */,
 				BE19239B2C05DEA0006C15F9 /* EpisodeModels.swift in Sources */,
 				BE1923992C05DEA0006C15F9 /* EpisodeWorker.swift in Sources */,
+				BE30C31C2C1AD7F600803E17 /* FavoriteWorker.swift in Sources */,
 				BE2F24352C180A1200DBAA87 /* PlayView.swift in Sources */,
 				BE19239C2C05DEA0006C15F9 /* EpisodeViewController.swift in Sources */,
+				BE30C31F2C1AD7F600803E17 /* FavoriteViewController.swift in Sources */,
 				BEF17FB92C020B9200F8511B /* UIScreen+ Ext.swift in Sources */,
 				BE2CAC2E2C18846C002395DE /* UIImageView+Ext.swift in Sources */,
+				BE30C31B2C1AD7F600803E17 /* FavoritePresenter.swift in Sources */,
+				BE30C31E2C1AD7F600803E17 /* FavoriteModels.swift in Sources */,
 				BEF17FBC2C020CEC00F8511B /* SearchCell.swift in Sources */,
 				BEF17FB62C02004F00F8511B /* ServiceManager.swift in Sources */,
 				BEF17FC32C022C6800F8511B /* ApiURL.swift in Sources */,
 				BE0D33452C01D213006AAD08 /* AppDelegate.swift in Sources */,
 				BEF17FAA2C01F7FC00F8511B /* SearchViewController.swift in Sources */,
 				BEFBA2B52C0774010006E655 /* PlayViewController.swift in Sources */,
+				BE30C3202C1AD7F600803E17 /* FavoriteBuilder.swift in Sources */,
 				BEF17FAD2C01F85200F8511B /* SearchBuilder.swift in Sources */,
 				BEF17FAB2C01F7FC00F8511B /* SearchInteractor.swift in Sources */,
 				BEF17FA82C01F7FC00F8511B /* SearchRouter.swift in Sources */,
+				BE30C31D2C1AD7F600803E17 /* FavoriteRouter.swift in Sources */,
 				BEF17FA72C01F7FC00F8511B /* SearchWorker.swift in Sources */,
 				BEFBA2B92C0775EE0006E655 /* PlayBuilder.swift in Sources */,
+				BE30C3212C1AD7F600803E17 /* FavoriteInteractor.swift in Sources */,
 				BEFBA2B62C0774010006E655 /* PlayInteractor.swift in Sources */,
 				BE0D335B2C01D597006AAD08 /* MainTabBarController.swift in Sources */,
 				BEF17FA62C01F7FC00F8511B /* SearchPresenter.swift in Sources */,
