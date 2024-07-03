@@ -2,14 +2,7 @@
 //  AppDelegate.swift
 //  PodcastApp
 //
-//  Created by Baran Baran on 25.05.2024.
-//
-//
-//  AppDelegate.swift
-//  MarvelApp
-//
-//  Created by Baran Baran on 30.05.2024.
-//
+
 
 import UIKit
 import CoreData

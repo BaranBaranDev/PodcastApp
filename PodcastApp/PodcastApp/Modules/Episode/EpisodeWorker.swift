@@ -8,12 +8,23 @@
 import UIKit
 import FeedKit
 
+
+// MARK:  EpisodeNetworkWorker Protocol
 protocol EpisodeNetworkWorker {
     func fetchData(urlString: String, completion: @escaping([EpisodeResponse]) -> Void)
 }
 
+// MARK:  EpisodeCoreDataWorker Protocol
+protocol EpisodeCoreDataWorker {
+   
+}
 
-struct EpisodeWorker: EpisodeNetworkWorker {
+// MARK:  EpisodeWorker
+struct EpisodeWorker {}
+
+
+// MARK: EpisodeNetworkWorker Implementation
+extension EpisodeWorker: EpisodeNetworkWorker {
     func fetchData(urlString: String, completion: @escaping ([EpisodeResponse]) -> Void) {
         var episodeResult: [EpisodeResponse] = []
         
@@ -49,3 +60,8 @@ struct EpisodeWorker: EpisodeNetworkWorker {
 }
 
 
+// MARK: - EpisodeCoreDataWorker Implementation
+
+extension EpisodeWorker: EpisodeCoreDataWorker {
+
+}

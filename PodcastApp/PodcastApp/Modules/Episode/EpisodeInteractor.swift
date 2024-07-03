@@ -4,9 +4,14 @@
 //
 //  Created by Baran Baran on 28.05.2024.
 
+import Foundation
+import CoreData
+
+
 
 protocol EpisodeBusinessLogic {
-    func fetchFeedData(request: Episode.fetchFeed.Request)
+    func fetchFeedData(request: EpisodeModes.fetchFeed.Request)
+    
 }
 
 protocol EpisodeDataStore {
@@ -20,15 +25,17 @@ final class EpisodeInteractor: EpisodeDataStore {
     var episodeResponse: EpisodeResponse?
     
     
-     //MARK: Dependencies
+    //MARK: Dependencies
     
-    private let worker: EpisodeNetworkWorker
+    typealias WorkerType = EpisodeNetworkWorker & EpisodeCoreDataWorker
+    
+    private let worker: WorkerType
     private let presenter: EpisodePresentationLogic
-    
-    init(worker: EpisodeNetworkWorker, presenter: EpisodePresentationLogic) {
-        self.worker = worker
-        self.presenter = presenter
-    }
+
+     init(worker: WorkerType, presenter: EpisodePresentationLogic) {
+         self.worker = worker
+         self.presenter = presenter
+     }
     
 }
 
@@ -36,10 +43,12 @@ final class EpisodeInteractor: EpisodeDataStore {
 
 
 extension EpisodeInteractor: EpisodeBusinessLogic {
-    func fetchFeedData(request: Episode.fetchFeed.Request) {
+
+    
+    func fetchFeedData(request: EpisodeModes.fetchFeed.Request) {
         worker.fetchData(urlString: request.feedUrl) { [weak self] episodeResponse in
             guard let self = self else { return }
-            presenter.presenterFetchFeed(response: Episode.fetchFeed.Response(feed: episodeResponse))
+            presenter.presentFetchFeed(response: EpisodeModes.fetchFeed.Response(feed: episodeResponse))
         }
     }
     

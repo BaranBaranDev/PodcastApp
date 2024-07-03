@@ -7,7 +7,8 @@
 
 
 protocol EpisodePresentationLogic {
-    func presenterFetchFeed(response: Episode.fetchFeed.Response)
+    func presentFetchFeed(response: EpisodeModes.fetchFeed.Response)
+  
 }
 
 
@@ -17,8 +18,11 @@ final class EpisodePresenter {
 
 
 extension EpisodePresenter: EpisodePresentationLogic{
-    func presenterFetchFeed(response: Episode.fetchFeed.Response) {
-        
-        controller?.displayFetchFeedData(viewModel: Episode.fetchFeed.ViewModel(feed: response.feed))
+    
+    func presentFetchFeed(response: EpisodeModes.fetchFeed.Response) {
+        controller?.displayFetchFeedData(viewModel: EpisodeModes.fetchFeed.ViewModel(feed: response.feed))
     }
+    
+
+
 }

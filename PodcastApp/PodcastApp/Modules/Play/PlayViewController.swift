@@ -12,9 +12,7 @@ final class PlayViewController: UIViewController {
     
     // MARK: - Properties
     private var episode: EpisodeResponse?
-    
-    
-    
+
     // MARK: - UI Elements
    
     private lazy var  playView : UIView = {

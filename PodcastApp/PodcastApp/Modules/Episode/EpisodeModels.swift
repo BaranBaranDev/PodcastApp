@@ -9,7 +9,9 @@
 import UIKit
 
 
-enum Episode {
+enum EpisodeModes {
+    
+    // fetch api
     enum fetchFeed {
         struct Request {
             let feedUrl: String
@@ -21,4 +23,6 @@ enum Episode {
             let feed: [EpisodeResponse]
         }
     }
+    
+   
 }

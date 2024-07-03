@@ -8,18 +8,20 @@
 import UIKit
 import SnapKit
 
-
+// MARK: EpisodeDisplayLogic
 protocol EpisodeDisplayLogic: AnyObject {
-    func displayFetchFeedData(viewModel: Episode.fetchFeed.ViewModel)
+    func displayFetchFeedData(viewModel: EpisodeModes.fetchFeed.ViewModel)
 }
 
 
+// MARK: EpisodeViewController
 final class EpisodeViewController: UIViewController {
     
     // MARK:  Properties
     private var episodeArray: [EpisodeResponse] = []
     private var searchResult: SearchResults?
-
+    private var isFavorited : Bool = false
+    
     
     //MARK: Dependencies
     private var interactor: EpisodeBusinessLogic & EpisodeDataStore
@@ -33,9 +35,6 @@ final class EpisodeViewController: UIViewController {
     }()
     
     
-    
-    
-    
     // MARK: - İnitialization
     
     
@@ -46,9 +45,9 @@ final class EpisodeViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         // kontrol
         guard let feedUrl = searchResult?.feedUrl else { return }
-        // başlar başlamaz gelen feedUrl verisini çekelim 
-        interactor.fetchFeedData(request: Episode.fetchFeed.Request(feedUrl: feedUrl))
-       
+        // başlar başlamaz gelen feedUrl verisini çekelim
+        interactor.fetchFeedData(request: EpisodeModes.fetchFeed.Request(feedUrl: feedUrl))
+        
     }
     
     required init?(coder: NSCoder) {
@@ -62,6 +61,7 @@ final class EpisodeViewController: UIViewController {
         super.viewDidLoad()
         setup()
         layout()
+        
         
     }
     
@@ -80,9 +80,12 @@ final class EpisodeViewController: UIViewController {
         tableView.register(EpisodeCell.self, forCellReuseIdentifier: EpisodeCell.reuseID)
         
         
-       // NavBar Configure
+        // NavBar Configure
         navigationItem.title = searchResult?.trackName
-
+        
+        let buttonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .done, target: self, action: #selector(didTappedFavorite))
+        navigationItem.rightBarButtonItem = buttonItem
+        
         
     }
     
@@ -95,13 +98,34 @@ final class EpisodeViewController: UIViewController {
             make.bottom.equalTo(view.snp.bottomMargin)
         }
     }
+    
+    // MARK: - Actions
+    
+    @objc fileprivate func didTappedFavorite() {
+        isFavorited.toggle()
+        let buttonImageName = isFavorited ? "heart.fill" : "heart"
+        let buttonItem = UIBarButtonItem(image: UIImage(systemName: buttonImageName ), style: .done, target: self, action: #selector(didTappedFavorite))
+        navigationItem.rightBarButtonItem = buttonItem
+        
+        // Save
+        if isFavorited {
+            guard let searchResult = searchResult else { return }
+            // kayıt edilecek
+          
+        } else {
+            // Kayıt Silinecek
+        }
+        
+    }
+    
+    
 }
 
+// MARK: - EpisodeDisplayLogic Implementation
 
-// MARK: - EpisodeDisplayLogic
 
 extension EpisodeViewController: EpisodeDisplayLogic {
-    func displayFetchFeedData(viewModel: Episode.fetchFeed.ViewModel) {
+    func displayFetchFeedData(viewModel: EpisodeModes.fetchFeed.ViewModel) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.episodeArray = viewModel.feed
@@ -119,10 +143,10 @@ extension EpisodeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EpisodeCell.reuseID, for: indexPath) as? EpisodeCell else{ return UITableViewCell()}
-       
+        
         let model = episodeArray[indexPath.item]
         cell.configure(with: model)
-    
+        
         return cell
     }
     
@@ -138,7 +162,7 @@ extension EpisodeViewController: UITableViewDelegate, UITableViewDataSource{
         // Geçiş
         router.routePlay()
     }
-
+    
     
     
 }
